@@ -29,13 +29,6 @@ This project is based on [BasicSR](https://github.com/XPixelGroup/BasicSR).
 ## 📧 Contact
 If you have any questions, please feel free to contact: `xiangtao.kong@connect.polyu.hk`
 
-## 🎓Citations
-If our code helps your research or work, please consider citing our paper.
-The following are BibTeX references:
-
-```
-
-```
 
 ## 🎫 License
 This project is released under the [Apache 2.0 license](LICENSE).
