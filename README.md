@@ -1,64 +1,101 @@
-# MiOIR
-Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy.
 
-[Paper](...)
+## Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy
 
-Authors: Xiangtao Kong, [Chao Dong](https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ&hl=zh-CN), [Lei Zhang]([http://www4.comp.polyu.edu.hk/~cslzhang/](https://scholar.google.com/citations?user=tAK5l1IAAAAJ&hl=en&oi=ao))
+<a href=''><img src='https://img.shields.io/badge/arXiv-2311.16518-b31b1b.svg'></a> &nbsp;&nbsp;
 
-
-![Demo Image](https://raw.githubusercontent.com/Xiangtaokong/ClassSR/main/demo_images/show.png)
+Authors: Xiangtao Kong, [Chao Dong](https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ&hl=zh-CN) and [Lei Zhang](https://scholar.google.com/citations?user=tAK5l1IAAAAJ&hl=en&oi=ao)
 
 ## Abstract
-While single task image restoration (IR) has achieved significant successes, it remains a challenging issue to train a single model which can tackle multiple IR tasks. In this work, we investigate in-depth the multiple-in-one (MiO) IR problem, which comprises seven popular IR tasks, and present two simple yet effective strategies to enhance the network learning performance. The first strategy, referred to as sequential learning, guides the network to incrementally learn individual IR tasks in a sequential manner rather than mixing them together. The second strategy, i.e., prompt learning, assists the network to understand the specific task for the image being processed, and hence improves the generalization capability of trained IR models. We demonstrate that the sequential and prompt learning strategies can significantly enhance the MiO performance of commonly used CNN and Transformer backbones, such as SRResNet and SwinIR, with improvements up to 1.21 dB/1.07 dB on in/out-of-distribution test sets, respectively. They can also enhance the state-of-the-art method PromptIR by 1.1 dB with only 75\% of its parameters. Our experiments also reveal that sequential and prompt learning can supplement each other to learn degradation representations and enhance the model robustness. It is expected that our proposed strategies and findings could facilitate the research on how to train IR models with higher generalization capabilities.
+While single task image restoration (IR) has achieved significant successes, it remains a challenging issue to train a single model which can tackle multiple IR tasks. In this work, we investigate in-depth the multiple-in-one (MiO) IR problem, which comprises seven popular IR tasks. We point out that MiO IR faces two pivotal challenges: the optimization of diverse objectives and the adaptation to multiple tasks. To tackle these challenges, we present two simple yet effective strategies. The first strategy, referred to as sequential learning, attempts to address how to optimize the diverse objectives, which guides the network to incrementally learn individual IR tasks in a sequential manner rather than mixing them together. The second strategy, i.e., prompt learning, attempts to address how to adapt to the different IR tasks, which assists the network to understand the specific task and improves the generalization ability. By evaluating on 19 test sets, we demonstrate that the sequential and prompt learning strategies can significantly enhance the MiO performance of commonly used CNN and Transformer backbones. Our experiments also reveal that the two strategies can supplement each other to learn better degradation representations and enhance the model robustness. It is expected that our proposed MiO IR formulation and strategies could facilitate the research on how to train IR models with higher generalization capabilities.
 
-## Dependencies
+## 🔎 Overview framework
+![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/MiOIR.png)
 
-- Python >= 3.7 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
-- [PyTorch >= 1.7.0](https://pytorch.org/)
-- NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
+## 📌 Quantitative Results
+![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/performance.png)
 
-# Codes 
-- Our codes version based on [BasicSR](https://github.com/xinntao/BasicSR). 
+## 📷 Visual Results
+![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_00.png)
 
-## How to train a MiO IR model
-1. Clone this github repo. 
+
+
+## ⚙️ Dependencies and Installation
 ```
-git clone https://github.com/Xiangtaokong/MiOIR
+## git clone this repository
+git clone https://github.com/Xiangtaokong/MiOIR.git
 cd MiOIR
-```
-2. Download the training datasets ([MiO_train](https:)). 
 
-3. Download the [divide_val.log](https://drive.google.com/file/d/1zMDD9Z_-fM2R2qm2QLoq7N2LMG6V92JT/view?usp=sharing) and move it to `.codes/data_scripts/`.
-
-
-
-## How to test a MiO model
-1. Clone this github repo. 
-```
-git clone https://github.com/Xiangtaokong/ClassSR.git
-cd ClassSR
+# create an environment with python >= 3.8
+conda create -n MiOIR python=3.8
+conda activate MiOIR
+pip install -r requirements.txt
 ```
 
-2. Download the testing datasets (Test2K, 4K, 8K) [Google Drive](https://drive.google.com/drive/folders/18b3QKaDJdrd9y0KwtrWU2Vp9nHxvfTZH?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1OARDfd2x3ynQs7m1tu_RnA) (Password: 7dw1) .
+## 🚀 Test
 
-3. You can also download the source data [DIV8K](https://competitions.codalab.org/competitions/22217#participate). Test8K contains the images (index 1401-1500) from DIV8K. Test2K/4K contain the images (index 1201-1300/1301-1400) from DIV8K which are downsampled to 2K and 4K resolution. (In this way, you need register for the competition (Ntire 2020 was held on 2020, but we can register now), then you can download DIV8K dataset.)
+#### Setp 1 Download the pretrained models
 
-4. Download [pretrained models](https://drive.google.com/drive/folders/1jzAFazbaGxHb-xL4vmxc-hHbR1J-uek_?usp=sharing) and move them to  `./experiments/pretrained_models/` folder. 
+Google Drive: coming soon.
+Baidu Drive: [link]()
 
-5. Run testing for ClassSR.
+#### Setp 2 Download the testsets
+
+Google Drive: coming soon.
+Baidu Drive: [link]()
+
+#### Setp 3 Edit the test ymal file
+
+Edit the 
+
+#### Setp 4 Run the command
+
+## :star: Train 
+
+#### Step1: Download the training data
+Download the pretrained [SD-2.1base models](https://huggingface.co/stabilityai/stable-diffusion-2-1-base) and [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth). You can put them into `preset/models`.
+
+#### Step2: Edit the train ymal file
+We pre-prepare training data pairs for the training process, which would take up some memory space but save training time. We train the DAPE with [COCO](https://cocodataset.org/#home) and train the SeeSR with common low-level datasets, such as DF2K.
+
+
+
+#### Step3: Run the command
+Please specify the DAPE training data path at `line 13` of `basicsr/options/dape.yaml`, then run the training command:
 ```
-cd codes
-python test_ClassSR.py -opt options/test/test_ClassSR_FSRCNN.yml
-python test_ClassSR.py -opt options/test/test_ClassSR_CARN.yml
-python test_ClassSR.py -opt options/test/test_ClassSR_SRResNet.yml
-python test_ClassSR.py -opt options/test/test_ClassSR_RCAN.yml
+python basicsr/train.py -opt basicsr/options/dape.yaml
 ```
-6. The output results will be sorted in `./results`. 
+You can modify the parameters in `dape.yaml` to adapt to your specific situation, such as the number of GPUs, batch size, optimizer selection, etc. For more details, please refer to the settings in Basicsr. 
+
+#### Step4: Training for SeeSR
 
 
 
-## Citation
+## ❤️ Acknowledgments
+This project is based on [BasicSR](https://github.com/XPixelGroup/BasicSR).
+
+## 📧 Contact
+If you have any questions, please feel free to contact: `xiangtao.kong@connect.polyu.hk`
+
+## 🎓Citations
+If our code helps your research or work, please consider citing our paper.
+The following are BibTeX references:
+
 ```
+
+```
+
+## 🎫 License
+This project is released under the [Apache 2.0 license](LICENSE).
+
+
+<details>
+<summary>statistics</summary>
+
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=cswry/SeeSR)
+
+</details>
+
+
 XXXX
 ```
 
