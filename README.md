@@ -1,4 +1,4 @@
-All the code and data will be release in this week 🤗. (before 2024.1.14) 
+All the code and data will be released in this week 🤗. (before 2024.1.14) 
 
 ## Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy
 
