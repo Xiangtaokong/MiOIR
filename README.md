@@ -1,3 +1,4 @@
+All the code and data will be release in this week 🤗. (before 2024.1.14) 
 
 ## Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy
 
@@ -12,61 +13,13 @@ While single task image restoration (IR) has achieved significant successes, it 
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/MiOIR.png)
 
 ## 📌 Quantitative Results
+
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/performance.png)
+
+More results of Restormer, Uformer and PromptIR can be found in paper.
 
 ## 📷 Visual Results
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_00.png)
-
-
-
-## ⚙️ Dependencies and Installation
-```
-## git clone this repository
-git clone https://github.com/Xiangtaokong/MiOIR.git
-cd MiOIR
-
-# create an environment with python >= 3.8
-conda create -n MiOIR python=3.8
-conda activate MiOIR
-pip install -r requirements.txt
-```
-
-## 🚀 Test
-
-#### Setp 1 Download the pretrained models
-
-Google Drive: coming soon.
-Baidu Drive: [link]()
-
-#### Setp 2 Download the testsets
-
-Google Drive: coming soon.
-Baidu Drive: [link]()
-
-#### Setp 3 Edit the test ymal file
-
-Edit the 
-
-#### Setp 4 Run the command
-
-## :star: Train 
-
-#### Step1: Download the training data
-Download the pretrained [SD-2.1base models](https://huggingface.co/stabilityai/stable-diffusion-2-1-base) and [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth). You can put them into `preset/models`.
-
-#### Step2: Edit the train ymal file
-We pre-prepare training data pairs for the training process, which would take up some memory space but save training time. We train the DAPE with [COCO](https://cocodataset.org/#home) and train the SeeSR with common low-level datasets, such as DF2K.
-
-
-
-#### Step3: Run the command
-Please specify the DAPE training data path at `line 13` of `basicsr/options/dape.yaml`, then run the training command:
-```
-python basicsr/train.py -opt basicsr/options/dape.yaml
-```
-You can modify the parameters in `dape.yaml` to adapt to your specific situation, such as the number of GPUs, batch size, optimizer selection, etc. For more details, please refer to the settings in Basicsr. 
-
-#### Step4: Training for SeeSR
 
 
 
@@ -91,14 +44,8 @@ This project is released under the [Apache 2.0 license](LICENSE).
 <details>
 <summary>statistics</summary>
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=cswry/SeeSR)
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Xiangtaokong/MiOIR)
 
 </details>
 
-
-XXXX
-```
-
-## Contact
-Email: xiangtao.kong@connect.polyu.hk
 
