@@ -1,4 +1,3 @@
-All the code and data will be released in this week 🤗. (before 2024.1.14) 
 
 ## Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy
 
@@ -21,7 +20,81 @@ More results of Restormer, Uformer and PromptIR can be found in paper.
 ## 📷 Visual Results
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_00.png)
 
+## ⚙️ Dependencies and Installation
+```
+## git clone this repository
+git clone https://github.com/Xiangtaokong/MiOIR.git
+cd MiOIR
 
+# create an environment with python >= 3.8
+conda create -n MiOIR python=3.8
+conda activate MiOIR
+conda install -r requirements.txt (or refer to the environment of [BasicSR](https://github.com/XPixelGroup/BasicSR))
+```
+
+## 🚀 Test
+
+#### Setp 1 Download the pre-trained models
+
+Google Drive: coming soon.
+
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw) Key: yxuw
+
+We provide 27 pre-trained models that appear in the paper.
+
+#### Setp 2 Download the testsets
+
+Google Drive: coming soon.
+
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw) Key: yxuw
+
+Please download MiO_test.zip and unzip it to `MiOIR/data`.
+
+#### Setp 3 Edit the test yml file
+
+Edit the yml files in `MiOIR/options/test` that you need. You mainly need to modify the path of your model and data.
+
+#### Setp 4 Run the command
+
+```
+cd MiOIR
+CUDA_VISIBLE_DEVICES=0 python basicsr/test.py --launcher none -opt MiOIR/options/test/xxxx.yml
+```
+The results will be put in `MiO/results`.
+
+## :star: Train 
+
+#### Step1: Download the training data
+
+Google Drive: coming soon.
+
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw) Key: yxuw
+
+You can download all the data (including `sr, blur, noise, jpeg, rain, haze, dark, GT .zip`), intotal 120G for dowmload.
+
+You can also only download `GT.zip` and `depth.zip`, then generate the rest data by `MiOIR/data_script/add_MiO_train_degradation.py`, intotal 16G for dowmload.
+
+#### Step2: Data prepare
+
+Using `data_script/gen_sub.py` to crop the data to `300x300`, you need modify some path and make sure save them with floder name of `xxx_sub300`.
+
+Using `data_script/gen_meta.py` to generate training meta file, you need modify some path and the order of the Sequential Learning (_S) you want.
+
+#### Step2: Edit the train yml file
+
+Edit the yml files in `MiOIR/options/train` that you need. You mainly need to modify the path of your model and data.
+
+Note that: Because Sequential Learning (_S) need a series of yml files, you can edit Mixed Learning (_M) first and then use `options/gen_train.py` to generate the yml files.
+
+#### Step3: Run the command
+
+```
+cd MiOIR
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --master_port=4176 basicsr/train.py -opt xxxxxx.yml
+```
+Note to modify the GPU card index and number `--nproc_per_node= GPU number` (correspond to it in yml).
+
+If you use `options/gen_train.py` to generate yml files, it will also generate a `.sh` script in `MiOIR/run_sh`. You can easily train Sequential Learning models through the script.
 
 ## ❤️ Acknowledgments
 This project is based on [BasicSR](https://github.com/XPixelGroup/BasicSR).
