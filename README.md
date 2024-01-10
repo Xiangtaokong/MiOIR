@@ -38,15 +38,15 @@ conda install -r requirements.txt (or refer to the environment of [BasicSR](http
 
 Google Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw)    Key: yxuw
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
-We provide 27 pre-trained models (including SRResNet, SwinIR, Restormer, Uformer and PromptIR) that appear in the paper.
+We provide 27 pre-trained models (including `SRResNet`, `SwinIR`, `Restormer`, `Uformer` and `PromptIR`) that appear in the paper.
 
 #### Setp 2 Download the testsets
 
 Google Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw)    Key: yxuw
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
 Please download `MiO_test.zip` and unzip it to `MiOIR/data`.
 
@@ -70,7 +70,7 @@ The results will be put in `MiO/results`.
 
 Google Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw)    Key: yxuw
+Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
 Download all the data (including `sr, blur, noise, jpeg, rain, haze, dark, GT .zip`), intotal 120G for dowmload.
 
