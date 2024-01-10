@@ -86,7 +86,9 @@ Use `data_script/gen_meta.py` to generate training meta file, modify some path a
 
 Edit the yml files in `MiOIR/options/train` that you need.Please modify the path of your model and data.
 
-Note that: Because Sequential Learning (_S) need a series of yml files, please edit Mixed Learning (_M) first and then use `options/gen_train.py` to generate the yml files.
+Note that: 
+
+Because Sequential Learning (_S) need a series of yml files, please edit Mixed Learning (_M) first and then use `options/gen_train.py` to generate the yml files.
 
 #### Step3: Run the command
 
