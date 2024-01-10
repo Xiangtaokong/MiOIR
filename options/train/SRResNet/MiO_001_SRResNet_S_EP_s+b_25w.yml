@@ -1,0 +1,78 @@
+name: MiO_001_SRResNet_S_EP_s+b_25w
+model_type: IRModel_EP
+scale: 1
+num_gpu: 2
+manual_seed: 0
+datasets:
+  train:
+    name: DF2K
+    type: MiO_EP_Dateset
+    meta_info: /home/notebook/data/personal/S9053103/MiOIR/meta_info/MiO-meta-DF2K_300_sb.txt
+    io_backend:
+      type: disk
+    gt_size: 128
+    use_flip: true
+    use_rot: true
+    num_worker_per_gpu: 4
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 1
+    prefetch_mode: null
+  val:
+    name: type7
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/val/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/val/LQ
+    io_backend:
+      type: disk
+network_g:
+  type: SRResNet_EP
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_block: 16
+  upscale: 1
+path:
+  pretrain_network_g: /home/notebook/data/personal/S9053103/MiOIR/experiments/MiO_001_SRResNet_S_EP_s_25w/models/net_g_latest.pth
+  param_key_g: params
+  strict_load_g: true
+  resume_state: null
+train:
+  ema_decay: 0.999
+  optim_g:
+    type: Adam
+    lr: 0.0002
+    weight_decay: 0
+    betas:
+    - 0.9
+    - 0.99
+  scheduler:
+    type: CosineAnnealingRestartLR
+    periods:
+    - 250000
+    restart_weights:
+    - 1
+    eta_min: 1.0e-07
+  total_iter: 250000
+  warmup_iter: -1
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+logger:
+  print_freq: 100
+  save_checkpoint_freq: 25000.0
+  use_tb_logger: true
+  wandb:
+    project: null
+    resume_id: null
+dist_params:
+  backend: nccl
+  port: 29500
+val:
+  val_freq: 25000
+  save_img: true
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false

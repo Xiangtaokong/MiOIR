@@ -1,0 +1,188 @@
+name: SwinIR_S_EP
+model_type: SwinIR_EP_class
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+# network structures
+network_g:
+  type: SwinIR_EP
+  upscale: 1
+  in_chans: 3
+  img_size: 128
+  window_size: 8
+  img_range: 1.
+  depths: [6, 6, 6, 6, 6, 6]
+  embed_dim: 180
+  num_heads: [6, 6, 6, 6, 6, 6]
+  mlp_ratio: 2
+  upsampler: 'pixelshuffle'
+  resi_connection: '1conv'
+
+network_c:
+  type: Classifier
+
+# path
+path:
+  pretrain_network_g: /home/notebook/data/personal/S9053103/MiOIR/pretrained_model/SwinIR_S_EP.pth
+  strict_load_g: true
+
+path_c:
+  pretrain_network_g: /home/notebook/data/personal/S9053103/MiOIR/pretrained_model/Classifier.pth
+  strict_load_g: true
+
+
+datasets:
+  test_1:
+    name: sr
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/sr
+    io_backend:
+      type: disk
+  test_2:
+    name: blur
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/blur
+    io_backend:
+      type: disk
+  test_3:
+    name: noise
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/noise
+    io_backend:
+      type: disk
+  test_4:
+    name: jpeg
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/jpeg
+    io_backend:
+      type: disk
+  test_5:
+    name: rain
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/rain
+    io_backend:
+      type: disk
+  test_6:
+    name: haze
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/haze
+    io_backend:
+      type: disk
+  test_7:
+    name: dark
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_indis/dark
+    io_backend:
+      type: disk
+
+
+  test_8:
+    name: sr_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/sr_outbig
+    io_backend:
+      type: disk
+  test_9:
+    name: blur_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/blur_outbig
+    io_backend:
+      type: disk
+  test_10:
+    name: noise_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/noise_outbig
+    io_backend:
+      type: disk
+  test_11:
+    name: jpeg_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/jpeg_outbig
+    io_backend:
+      type: disk
+  test_12:
+    name: rain_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/rain_outbig
+    io_backend:
+      type: disk
+  test_13:
+    name: haze_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/haze_outbig
+    io_backend:
+      type: disk
+  test_14:
+    name: dark_outbig
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/original/GT
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/single_outbig/dark_outbig
+    io_backend:
+      type: disk
+
+  test_15:
+    name: DIV2K_valid_LR_difficult
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/DIV2K_valid_HR_toLR
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/LQ_LR/DIV2K_valid_LR_difficult
+    io_backend:
+      type: disk
+  test_16:
+    name: DIV2K_valid_LR_mild
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/DIV2K_valid_HR_toLR
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/LQ_LR/DIV2K_valid_LR_mild
+    io_backend:
+      type: disk
+  test_17:
+    name: DIV2K_valid_LR_wild
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/DIV2K_valid_HR_toLR
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/LQ_LR/DIV2K_valid_LR_wild
+    io_backend:
+      type: disk
+  test_18:
+    name: valid-input-noisy
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/DIV2K_valid_HR_toLR
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/LQ_LR/valid-input-noisy
+    io_backend:
+      type: disk
+  test_19:
+    name: Toled_val
+    type: PairedImageDataset
+    dataroot_gt: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/Toled_val/HQ
+    dataroot_lq: /home/notebook/data/personal/S9053103/CL_data/CL_test/unknow/Toled_val/LQ
+    io_backend:
+      type: disk
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false
+#    ssim:
+#      type: calculate_ssim
+#      crop_border: 4
+#      test_y_channel: false
+
+
