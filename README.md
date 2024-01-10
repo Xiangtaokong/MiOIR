@@ -80,17 +80,17 @@ OR only download `GT.zip` and `depth.zip`, then generate the rest data by `MiOIR
 
 Use `data_script/gen_sub.py` to crop the data to `300x300`, modify some path and make sure save them with floder name of `xxx_sub300`.
 
-Use `data_script/gen_meta.py` to generate training meta file, modify some path and the order of the Sequential Learning (_S) you want.
+Use `data_script/gen_meta.py` to generate training meta file, modify some path and the order of the sequential learning (`_S`) you want.
 
-#### Step2: Edit the train yml file
+#### Step3: Edit the train yml file
 
 Edit the yml files in `MiOIR/options/train` that you need.Please modify the path of your model and data.
 
 Note that: 
 
-Because Sequential Learning (_S) need a series of yml files, please edit Mixed Learning (_M) first and then use `options/gen_train.py` to generate the yml files.
+Because the sequential learning (`_S`) need a series of yml files, please edit mixed learning (`_M`) first and then use `options/gen_train.py` to generate the yml files.
 
-#### Step3: Run the command
+#### Step4: Run the command
 
 ```
 cd MiOIR
