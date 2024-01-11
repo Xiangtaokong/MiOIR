@@ -154,17 +154,6 @@ def check_dir(dir):
     else:
         os.makedirs(dir)
 
-def r_l(img):
-
-    psf = np.ones((1, 1, 5, 5))
-    psf = psf / psf.sum()
-    img = img.numpy()
-    img = np.pad(img, ((0, 0), (0, 0), (7, 7), (7, 7)), 'linear_ramp')
-    img = restoration.richardson_lucy(img, psf, 1)
-    img = img[:, :, 7:-7, 7:-7]
-    img = torch.from_numpy(img)
-
-    return img
 
 
 def sinc(img, kernel_size,omega_c):
@@ -206,28 +195,6 @@ def convertToJpeg(img, q):
 
 
 
-def inpainting(img,l_num,l_thick):
-    # inpainting
-    ori_h, ori_w = img.size()[2:4]
-    mask = np.zeros((ori_h, ori_w, 3), np.uint8)
-    # l_num = random.randint(5, 10)
-    # l_thick = random.randint(5, 10)
-    col = random.choice(['white', 'black'])
-    while (l_num):
-        x1, y1 = random.randint(0, ori_w), random.randint(0, ori_h)
-        x2, y2 = random.randint(0, ori_w), random.randint(0, ori_h)
-        pts = np.array([[x1, y1], [x2, y2]], np.int32)
-        pts = pts.reshape((-1, 1, 2))
-        mask = cv2.polylines(mask, [pts], 0, (1, 1, 1), l_thick)
-        l_num -= 1
-    mask = img2tensor([mask], bgr2rgb=True, float32=True)[0]
-
-    if col == 'white':
-        img = torch.clamp(img + mask, 0, 1)  # 白线，加上
-    else:
-        img = torch.clamp(img - mask, 0, 1)  # 黑线，减去
-
-    return img
 
 def add_rain(img,value):
     w, h, c = img.shape
@@ -340,42 +307,6 @@ def add_dark(img,gamma):
 
     return gamma_img
 
-
-def add_snow(img,depth_path,mask_path,A,B):
-
-    mask = cv2.imread(mask_path)
-
-    w, h, c = img.shape
-    h = h - (h % 4)
-    w = w - (w % 4)
-    img = img[0:w, 0:h, :]
-
-    w_m, h_m, _ = mask.shape
-
-    # mask = mask[:int(w_m / 2), :int(h_m / 2), :]
-
-    mask = cv2.resize(mask, (h, w))
-
-    img = img.astype('float32') * (1 - mask / 255.) + 1 * mask
-
-    np.clip(img, 0, 255, out=img)
-
-    depth_data = scio.loadmat(depth_path)
-    depth_arr = depth_data['data_obj']
-
-    w, h = depth_arr.shape
-
-    depth_arr = cv2.resize(depth_arr, (h * 4, w * 4))
-
-    depth_arr = depth_arr / depth_arr.max()
-
-
-    T = np.exp(-B * depth_arr)
-    T = np.expand_dims(T, axis=2)
-
-    img = img * T + A * 255 * (1 - T)
-
-    return img
 
 if __name__ == '__main__':
     import argparse
