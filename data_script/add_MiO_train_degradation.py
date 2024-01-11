@@ -151,19 +151,6 @@ def check_dir(dir):
     else:
         os.makedirs(dir)
 
-def r_l(img):
-
-    psf = np.ones((1, 1, 5, 5))
-    psf = psf / psf.sum()
-    img = img.numpy()
-    img = np.pad(img, ((0, 0), (0, 0), (7, 7), (7, 7)), 'linear_ramp')
-    img = restoration.richardson_lucy(img, psf, 1)
-    img = img[:, :, 7:-7, 7:-7]
-    img = torch.from_numpy(img)
-
-    return img
-
-
 def sinc(img, kernel_size,omega_c):
 
     sinc_kernel = circular_lowpass_kernel(omega_c, kernel_size, pad_to=21)
@@ -201,30 +188,6 @@ def convertToJpeg(img, q):
     img = jpeger(img, quality=q)
     return img
 
-
-
-def inpainting(img,l_num,l_thick):
-    # inpainting
-    ori_h, ori_w = img.size()[2:4]
-    mask = np.zeros((ori_h, ori_w, 3), np.uint8)
-    # l_num = random.randint(5, 10)
-    # l_thick = random.randint(5, 10)
-    col = random.choice(['white', 'black'])
-    while (l_num):
-        x1, y1 = random.randint(0, ori_w), random.randint(0, ori_h)
-        x2, y2 = random.randint(0, ori_w), random.randint(0, ori_h)
-        pts = np.array([[x1, y1], [x2, y2]], np.int32)
-        pts = pts.reshape((-1, 1, 2))
-        mask = cv2.polylines(mask, [pts], 0, (1, 1, 1), l_thick)
-        l_num -= 1
-    mask = img2tensor([mask], bgr2rgb=True, float32=True)[0]
-
-    if col == 'white':
-        img = torch.clamp(img + mask, 0, 1)  # 白线，加上
-    else:
-        img = torch.clamp(img - mask, 0, 1)  # 黑线，减去
-
-    return img
 
 def add_rain(img,value):
     w, h, c = img.shape
@@ -330,12 +293,6 @@ def add_haze(img,depth_path,A,B):
     img = img * T + A * 255 * (1 - T)
 
     return img
-
-def add_dark(img,gamma):
-
-    gamma_img = np.power(img, gamma)
-
-    return gamma_img
 
 
 def add_snow(img,depth_path,mask_path,A,B):
