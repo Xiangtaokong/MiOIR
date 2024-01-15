@@ -8,6 +8,8 @@ Authors: Xiangtao Kong, [Chao Dong](https://scholar.google.com.hk/citations?user
 ## Abstract
 While single task image restoration (IR) has achieved significant successes, it remains a challenging issue to train a single model which can tackle multiple IR tasks. In this work, we investigate in-depth the multiple-in-one (MiO) IR problem, which comprises seven popular IR tasks. We point out that MiO IR faces two pivotal challenges: the optimization of diverse objectives and the adaptation to multiple tasks. To tackle these challenges, we present two simple yet effective strategies. The first strategy, referred to as sequential learning, attempts to address how to optimize the diverse objectives, which guides the network to incrementally learn individual IR tasks in a sequential manner rather than mixing them together. The second strategy, i.e., prompt learning, attempts to address how to adapt to the different IR tasks, which assists the network to understand the specific task and improves the generalization ability. By evaluating on 19 test sets, we demonstrate that the sequential and prompt learning strategies can significantly enhance the MiO performance of commonly used CNN and Transformer backbones. Our experiments also reveal that the two strategies can supplement each other to learn better degradation representations and enhance the model robustness. It is expected that our proposed MiO IR formulation and strategies could facilitate the research on how to train IR models with higher generalization capabilities.
 
+:star: If SeeSR is helpful to your images or projects, please help star this repo. Thanks! :hugs:
+
 ## 🔎 Overview framework
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/MiOIR.png)
 
@@ -36,17 +38,17 @@ conda install -r requirements.txt (or refer to the environment of [BasicSR](http
 
 #### Setp 1 Download the pre-trained models
 
-Google Drive: coming soon.
+One Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
+[Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
 We provide 27 pre-trained models (including `SRResNet`, `SwinIR`, `Restormer`, `Uformer` and `PromptIR`) that appear in the paper.
 
 #### Setp 2 Download the testsets
 
-Google Drive: coming soon.
+One Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
+[Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
 Please download `MiO_test.zip` and unzip it to `MiOIR/data`.
 
@@ -68,9 +70,9 @@ The results will be put in `MiO/results`.
 
 #### Step1: Download the training data
 
-Google Drive: coming soon.
+One Google Drive: coming soon.
 
-Baidu Drive: [link](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
+[Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
 Download all the data (including `sr, blur, noise, jpeg, rain, haze, dark, GT .zip`), intotal 120G for dowmload.
 
@@ -108,9 +110,23 @@ This project is based on [BasicSR](https://github.com/XPixelGroup/BasicSR).
 ## 📧 Contact
 If you have any questions, please feel free to contact: `xiangtao.kong@connect.polyu.hk`
 
+## 🎓Citations
+If our code helps your research or work, please consider citing our paper.
+The following are BibTeX references:
+
+```
+@article{kong2024towards,
+  title={Towards Effective Multiple-in-One Image Restoration: A Sequential and Prompt Learning Strategy},
+  author={Kong, Xiangtao and Dong, Chao and Zhang, Lei},
+  journal={arXiv preprint arXiv:2401.03379},
+  year={2024}
+}
+```
 
 ## 🎫 License
 This project is released under the [Apache 2.0 license](LICENSE).
+
+
 
 
 <details>
