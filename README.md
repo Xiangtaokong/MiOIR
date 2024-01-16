@@ -38,7 +38,7 @@ conda install -r requirements.txt (or refer to the environment of [BasicSR](http
 
 #### Setp 1 Download the pre-trained models
 
-One Drive: coming soon.
+[One Drive](https://connectpolyu-my.sharepoint.com/:f:/g/personal/23105237r_connect_polyu_hk/EmwjMLnXyztLo8dmBcYA6xsBikhDiVPM3Oc8cyrb2EWxzA?e=05xij8)
 
 [Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
@@ -46,7 +46,7 @@ We provide 27 pre-trained models (including `SRResNet`, `SwinIR`, `Restormer`, `
 
 #### Setp 2 Download the testsets
 
-One Drive: coming soon.
+[One Drive](https://connectpolyu-my.sharepoint.com/:f:/g/personal/23105237r_connect_polyu_hk/Es-ie8Hd_O5KuLDXH1G7c-4BHok3MH8A43-NltzBblb83A?e=dZT3RU)
 
 [Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
@@ -70,7 +70,7 @@ The results will be put in `MiO/results`.
 
 #### Step1: Download the training data
 
-One Google Drive: coming soon.
+[One Drive](https://connectpolyu-my.sharepoint.com/:f:/g/personal/23105237r_connect_polyu_hk/Eiic-eLBEXNEiB_-UPVGDNcBJ5jHiMM5V4oYAL7u1KFxRg?e=eVcsAP)
 
 [Baidu Drive](https://pan.baidu.com/s/1OCtPAv8sZe27mxBs-5HT_w?pwd=yxuw).    Key: yxuw
 
