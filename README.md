@@ -31,8 +31,9 @@ cd MiOIR
 # create an environment with python >= 3.8
 conda create -n MiOIR python=3.8
 conda activate MiOIR
-conda install -r requirements.txt (or refer to the environment of [BasicSR](https://github.com/XPixelGroup/BasicSR))
+conda install -r requirements.txt 
 ```
+OR refer to the environment of [BasicSR](https://github.com/XPixelGroup/BasicSR)
 
 ## 🚀 Test
 
