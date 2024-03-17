@@ -17,7 +17,7 @@ While single task image restoration (IR) has achieved significant successes, it 
 
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/performance.png)
 
-More results of `Restormer`, `Uformer` and `PromptIR` can be found in paper.
+More results of `Restormer`, `Uformer` and `PromptIR` (including the single task models) can be found in paper.
 
 ## 📷 Visual Results
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_00.png)
