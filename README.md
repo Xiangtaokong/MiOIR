@@ -22,6 +22,8 @@ More results of `Restormer`, `Uformer` and `PromptIR` can be found in paper.
 ## 📷 Visual Results
 ![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_00.png)
 
+![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/visual_01.png)
+
 ## ⚙️ Dependencies and Installation
 ```
 ## git clone this repository
