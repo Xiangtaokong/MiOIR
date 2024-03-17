@@ -11,7 +11,7 @@ While single task image restoration (IR) has achieved significant successes, it 
 :star: If MiOIR is helpful to your images or projects, please help star this repo. Thanks! :hugs:
 
 ## 🔎 Overview framework
-![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/MiOIR.png)
+![Demo Image](https://github.com/Xiangtaokong/MiOIR/blob/main/demo_images/MIOIR.png)
 
 ## 📌 Quantitative Results
 
